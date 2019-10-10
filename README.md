@@ -17,7 +17,7 @@ Esta versão é relativa ao Portinari, para maiores informações favor acessar:
 git clone https://github.com/ricardomansano/NiverPortinariAngular.git
 
 # Acesse o diretório
-cd dir_do_projeto
+cd NiverPortinariAngular
 
 # Instale as dependencias
 npm install
