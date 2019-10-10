@@ -1,0 +1,48 @@
+<div>
+    <h2>
+        {{this.title}}
+    </h2>
+
+    <!-- [*Form] ngNativeValidate é necessário para manter a validacao padrao de preenchimento -->
+    <form #niverForm="ngForm">
+        <div class="po-row">
+            <po-input
+                class="po-md-5"
+                id="person"
+                name="person"
+                [(ngModel)]="person"
+                p-clean
+                p-require="true"
+                p-label="Aniversariante">
+            </po-input>
+        
+            <po-datepicker
+                class="po-md-5"
+                name="birthday"
+                [(ngModel)]="birthday"
+                p-clean
+                p-label="Niver">
+            </po-datepicker>
+
+            <po-button
+                class="po-md-2"
+                p-label="INSERIR"
+                p-type="primary"
+                (p-click)="onClickSubmit(niverForm)"
+                [p-disabled]="!validForm()"
+            >
+            </po-button>
+        </div>
+    </form>
+
+    <!-- [*LoopCreation] No Angular o ngFor eh usado pra executar um Loop de criacao de componentes 
+    neste momento usamos criando um componente niver-item para cada item do Vetor nivers-->
+    <niver-item
+        *ngFor="let nivers of this.nivers | keyvalue"
+        idx={{nivers.key}}
+        birthday={{nivers.value.list[0]}}
+        person={{nivers.value.list[1]}}
+    >
+    </niver-item>
+
+</div>

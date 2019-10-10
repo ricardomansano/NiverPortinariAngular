@@ -1,0 +1,20 @@
+<!-- [*AppBar] -->
+<po-navbar
+  [p-icon-actions]="navActions"
+  [p-menu]="mainMenu"
+  p-shadow="true">
+</po-navbar>
+
+<div class="po-wrapper">
+  
+  <!-- [*MainMenu] -->
+  <po-menu #mainMenu
+    [p-menus]="menus">
+  </po-menu>
+
+  <po-page-default>
+    <!-- [*Router] -->
+    <router-outlet></router-outlet>
+  </po-page-default> 
+
+</div>
