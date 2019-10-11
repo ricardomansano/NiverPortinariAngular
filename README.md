@@ -23,3 +23,7 @@ npm install
 # Inicie o projeto
 ng serve --open
 ```
+
+## Image
+
+![](https://raw.githubusercontent.com/ricardomansano/NiverPortinariAngular/master/images/PrintPortinariAngular_1.png)
