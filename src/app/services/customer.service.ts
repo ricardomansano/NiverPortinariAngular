@@ -32,9 +32,4 @@ export class CustomerService {
   delCustomer(id: string){
     return this.http.delete<any[]>(`${this.customerUrl + "/" + id}`)
   }
-  
-  // Restaura
-  restoreCustomer(){
-    return this.http.delete<any[]>(`${this.customerUrl + "/" + id}`)
-  }
 }
