@@ -12,8 +12,29 @@ export class CustomerService {
   constructor(private http: HttpClient) { }
 
   // [*Rest: Declarando os servicos que serao consumidos]
+
+  // Novo
+  newCustomer(customer){
+    return this.http.post<any[]>(`${this.customerUrl}`, customer)
+  }
+
+  // Lista todos
   getCustomers(){
     return this.http.get<any[]>(`${this.customerUrl}`)
   }
 
+  // Lista um cliente
+  getCustomer(id: string){
+    return this.http.get<any[]>(`${this.customerUrl + "/" + id}`)
+  }
+
+  // Deleta
+  delCustomer(id: string){
+    return this.http.delete<any[]>(`${this.customerUrl + "/" + id}`)
+  }
+  
+  // Restaura
+  restoreCustomer(){
+    return this.http.delete<any[]>(`${this.customerUrl + "/" + id}`)
+  }
 }

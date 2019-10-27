@@ -1,7 +1,37 @@
-<p>customer works!</p>
+<h2>Customers - Consumindo Rest</h2><br>
 
-<ul>
-    <li *ngFor="let c of customers">
-        {{c.id}} = {{c.name}}
-    </li>
-</ul>
+<po-button
+    p-icon="po-icon-plus-circle"
+    p-label="Novo"
+    p-type="primary"
+    (p-click)="this.newCustomer({'id': '1004', 'name': 'Customer 1004'});">
+</po-button>{{" "}}
+
+<po-button
+    p-icon="po-icon-list"
+    p-label="Lista todos"
+    p-type="primary"
+    (p-click)="this.getCustomers();">
+</po-button>{{" "}}
+
+<po-button
+    p-icon="po-icon-search"
+    p-label="Lista 1003"
+    p-type="primary"
+    (p-click)="this.getCustomer(1003);">
+</po-button>{{" "}}
+
+<po-button
+    p-icon="po-icon-user-delete"
+    p-label="Deleta 1002"
+    p-type="primary"
+    (p-click)="this.delCustomer(1002);">
+</po-button>
+
+<div style="margin: 20px;">
+    <ul>
+        <li *ngFor="let c of customers">
+            ID: {{c.id}} | Name: {{c.name}}
+        </li>
+    </ul>
+</div>

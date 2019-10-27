@@ -12,10 +12,20 @@ app.use(express.urlencoded()); // to support URL-encoded bodies
 // [*Rest: Para habilitar o CORS, evitando o erro: has been blocked by CORS policy: No 'Access-Control-Allow-Origin'
 // https://stackoverflow.com/questions/18310394/no-access-control-allow-origin-node-apache-port-issue
 app.use(function (req, res, next) {
-    // Website que deseja habilitar o acesso
+    // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
-    
-    // Passa o controle pra proxima camada do middleware
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
     next();
 });
 
@@ -26,8 +36,11 @@ app.listen(port, () => {
 // Metodo POST: Cria novo registro
 // Usando o Postman vc deve usar a opcao Body => x-www-form-urlencoded para preenchimento
 app.post("/rest/customer", (req, res) => {
-    console.log(`Post`)
+    console.log(`Post ${req.body}`)
     data.push(req.body)
+    
+    console.log(data)
+
     res.json({"status": "OK"})
 });
 
