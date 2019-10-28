@@ -8,34 +8,29 @@ import { CustomerService } from '../services/customer.service';
 })
 export class CustomerComponent implements OnInit {
   customers: Array<any>;
-  id: ''; 
-  name: '';
+  id: string = ''; 
+  name: string = '';
 
   constructor(private customerService: CustomerService) { }
 
-  ngOnInit() {
-    this.id = '';
-    this.name = '';    
-  }
+  ngOnInit() { }
 
-  validForm = () => {
-    return (this.id !== "")
+  validForm(){
+    return (this.id !== '')
   }
 
   // [*Rest: Consumindo o service no componente]
 
   // Novo
-  newCustomer = (restForm) => {
+  newCustomer(restForm){
     this.customerService
       .newCustomer({"id": this.id, "name": this.name})
       .subscribe( () => {
-        this.getCustomers()
-  
-        // Limpa o valor do campo depois do submit
+        this.getCustomers() // Lista todos ao fim da inclusao
+        
         restForm.reset()
-        this.id = '';
-        this.name = '';
-    } ); // Lista todos ao fim da inclusao
+        this.id = this.name = ''
+    } ); 
   }
 
   // Lista todos

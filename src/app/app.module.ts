@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { AppComponent } from './app.component';
 import { FormsModule }   from '@angular/forms'; // [*Form] Necessario para utilizar os Forms HTML
 
-// [*Rest: A importacao do servico nao é automatica]
+// [*Rest: A importacao do servico nao eh automatica]
 import { CustomerService } from './services/customer.service';
 import { HttpClientModule } from '@angular/common/http';
 

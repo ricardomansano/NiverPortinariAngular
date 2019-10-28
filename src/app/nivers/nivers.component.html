@@ -1,45 +1,157 @@
 <div>
-    <h2>Nivers</h2><br>
+    <h2>Aniversários - Form</h2><br>
 
     <!-- [*Form]  -->
     <form #niverForm="ngForm">
         <div class="po-row">
             <po-input
                 class="po-md-5"
-                id="person"
-                name="person"
-                [(ngModel)]="person"
+                id="f_person"
+                name="f_person"
+                [(ngModel)]="f_person"
+                p-icon="po-icon-user"
                 p-clean
                 p-require="true"
-                p-label="Aniversariante">
-            </po-input>
+                p-label="Person(po-input)"
+                p-maxlength="10"
+                (p-enter)="personEnter('Focus in person field')"
+            ></po-input>
         
             <po-datepicker
-                class="po-md-5"
-                name="birthday"
-                [(ngModel)]="birthday"
+                class="po-md-2"
+                name="f_birthday"
+                [(ngModel)]="f_birthday"
                 p-clean
-                p-label="Niver">
-            </po-datepicker>
+                p-label="Niver(po-datepicker)"
+            ></po-datepicker>
 
+            <po-switch
+                class="po-md-1"
+                name="f_switch"
+                [(ngModel)]="f_switch"
+                p-label="po-switch"
+                p-label-on=" "
+                p-label-off=" "
+            ></po-switch>
+
+            <po-combo
+                class="po-lg-2"
+                name="f_combo"
+                [(ngModel)]="f_combo"
+                p-clean
+                p-label="po-combo"
+                [p-options]="selectOptions"
+            ></po-combo>
+
+            <po-select
+                class="po-lg-2"
+                name="f_select"
+                [(ngModel)]="f_select"
+                p-clean
+                p-label="po-select"
+                [p-options]="selectOptions"
+            ></po-select>
+        </div>
+
+        <div class="po-row">
+            <po-password
+                class="po-lg-2"
+                name="f_password"
+                [(ngModel)]="f_password"
+                p-label="po-password"
+                p-clean
+            ></po-password>
+
+            <po-number
+                class="po-lg-2"
+                name="f_number"
+                [(ngModel)]="f_number"
+                p-label="po-number"
+                p-clean
+            ></po-number>
+
+            <po-email
+                class="po-lg-4"
+                name="f_email"
+                [(ngModel)]="f_email"
+                p-label="po-email"
+                p-clean
+            ></po-email>
+        
+            <po-url
+                class="po-lg-4"
+                name="f_website"
+                [(ngModel)]="f_website"
+                p-label="po-url"
+                p-clean
+            ></po-url>
+        </div>
+
+        <div class="po-row">
+            <po-upload
+                class="po-lg-2"
+                name="f_upload"
+                [(ngModel)]="f_upload"
+                p-label="po-upload"
+                p-clean
+                p-url="https://thf.totvs.com.br/sample/api/uploads/addFile"
+            ></po-upload>
+
+            <po-radio-group
+                class="po-md-5"
+                name="f_radio"
+                [(ngModel)]="f_radio"
+                p-columns="4"
+                p-label="po-radio-group"
+                [p-options]="radionOptions"
+            ></po-radio-group>
+        
+            <po-checkbox-group
+                class="po-md-5"
+                name="f_checkbox"
+                [(ngModel)]="f_checkbox"
+                p-columns="4"
+                p-label="po-checkbox-group"
+                [p-options]="checkboxOptions"
+            ></po-checkbox-group>
+        </div>
+
+        <div class="po-row">
+            <po-multiselect
+                class="po-md-6"
+                name="f_multiselect"
+                [(ngModel)]="f_multiselect"
+                p-label="po-multiselect"
+                [p-options]="multiselectOptions"
+            ></po-multiselect>
+
+            <po-textarea
+                class="po-md-6"
+                name="f_textarea"
+                [(ngModel)]="f_textarea"
+                p-label="po-textarea"
+            ></po-textarea>            
+        </div>
+
+        <div class="po-row">
             <po-button
                 class="po-md-2"
                 p-label="INSERIR"
                 p-type="primary"
                 (p-click)="onClickSubmit(niverForm)"
                 [p-disabled]="!validForm()"
-            >
-            </po-button>
+            ></po-button>
         </div>
     </form>
 
+    <hr>
     <!-- [*LoopCreation] No Angular o ngFor eh usado pra executar um Loop de criacao de componentes 
     neste momento usamos criando um componente niver-item para cada item do Vetor nivers-->
     <niver-item
         *ngFor="let nivers of this.nivers | keyvalue"
         idx={{nivers.key}}
-        birthday={{nivers.value.list[0]}}
-        person={{nivers.value.list[1]}}
+        f_birthday={{nivers.value.list[0]}}
+        f_person={{nivers.value.list[1]}}
     >
     </niver-item>
 
