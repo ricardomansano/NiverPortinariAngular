@@ -8,13 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class HooksComponent implements OnInit {
 
   constructor() { }
+  ngOnInit() { }
 
   // [*Getter_and_Setter]
   _count: number = 0;
   get count(): number{ return this._count; }
   set count( value: number ){ this._count = value; }
-
-  ngOnInit() {
-  }
 
 }

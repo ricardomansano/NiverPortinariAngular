@@ -41,7 +41,7 @@ export class NiversComponent implements OnInit {
 
   // [*Form: Essa funcao vai ser responsavel por habilitar o botao submit quando nome for preenchido]
   validForm = () => {
-    return (this.person !=="")
+    return (this.person !== "")
   }
 
 }

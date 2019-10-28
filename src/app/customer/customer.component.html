@@ -1,32 +1,59 @@
 <h2>Customers - Consumindo Rest</h2><br>
 
-<po-button
-    p-icon="po-icon-plus-circle"
-    p-label="Novo"
-    p-type="primary"
-    (p-click)="this.newCustomer({'id': '1004', 'name': 'Customer 1004'});">
-</po-button>{{" "}}
+<form #restForm="ngForm">
+    <div class="po-row">
+        <po-input
+            class="po-md-2"
+            name="id"
+            [(ngModel)]="id"
+            p-clean
+            p-placeholder="id"
+            p-require="true">
+        </po-input>
+    
+        <po-input
+            class="po-md-10"
+            name="name"
+            [(ngModel)]="name"
+            p-clean
+            p-placeholder="Name">
+        </po-input>
 
-<po-button
-    p-icon="po-icon-list"
-    p-label="Lista todos"
-    p-type="primary"
-    (p-click)="this.getCustomers();">
-</po-button>{{" "}}
+    </div>
+</form>
 
-<po-button
-    p-icon="po-icon-search"
-    p-label="Lista 1003"
-    p-type="primary"
-    (p-click)="this.getCustomer(1003);">
-</po-button>{{" "}}
+<div align="right">
+    <po-button
+        p-icon="po-icon-plus-circle"
+        p-label="Novo"
+        p-type="primary"
+        (p-click)="this.newCustomer(restForm);"
+        [p-disabled]="!validForm()">
+    </po-button>{{" "}}
 
-<po-button
-    p-icon="po-icon-user-delete"
-    p-label="Deleta 1002"
-    p-type="primary"
-    (p-click)="this.delCustomer(1002);">
-</po-button>
+    <po-button
+        p-icon="po-icon-list"
+        p-label="Lista todos"
+        p-type="primary"
+        (p-click)="this.getCustomers();">
+    </po-button>{{" "}}
+
+    <po-button
+        p-icon="po-icon-search"
+        p-label="Lista selecionado"
+        p-type="primary"
+        (p-click)="this.getCustomer();"
+        [p-disabled]="!validForm()">
+    </po-button>{{" "}}
+
+    <po-button
+        p-icon="po-icon-user-delete"
+        p-label="Deleta"
+        p-type="primary"
+        (p-click)="this.delCustomer();"
+        [p-disabled]="!validForm()">
+    </po-button>
+</div>
 
 <div style="margin: 20px;">
     <ul>
