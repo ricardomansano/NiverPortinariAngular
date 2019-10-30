@@ -61,7 +61,7 @@ export class NiversComponent implements OnInit {
 
   // [*Submit]
   onClickSubmit(form){
-    this.nivers.push({ list: [form.value.f_birthday, form.value.f_person] } )
+    this.nivers.push({ list: [this.f_birthday, this.f_person] } )
 
     form.reset()
     this.f_person = ''
@@ -88,23 +88,17 @@ export class NiversComponent implements OnInit {
   selector: 'niver-item',
   // [*Template_Item]
   template: `
-    <div style='
-        margin: 0;
-        margin-bottom: 1;
-        border-bottom-color: #808080;
-        border-bottom-style: solid;
-        border-bottom-width: 1;'
-        >
-       
+    <div>       
         <po-button
-            p-icon="po-icon-delete"
-            p-type="link"
-            (p-click)="delNiver()"
+          p-icon="po-icon-delete"
+          p-type="link"
+          (p-click)="delNiver()"
         >
         </po-button>
 
         | {{this.f_birthday}} | {{this.f_person}}
     </div>
+    <po-divider></po-divider>
   `,
   styleUrls: ['./nivers.component.css']
 })
