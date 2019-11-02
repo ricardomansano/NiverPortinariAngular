@@ -33,7 +33,7 @@ export class NiversComponent implements OnInit {
   ];
 
   // Itens do po-radio-group
-  public readonly radionOptions: Array<PoRadioGroupOption> = [
+  public readonly radioOptions: Array<PoRadioGroupOption> = [
     { label: 'Opção 1', value: 1 },
     { label: 'Opção 2', value: 2 },
     { label: 'Opção 3', value: 3 }
@@ -42,8 +42,8 @@ export class NiversComponent implements OnInit {
   // Itens do po-checkbox-group
   public readonly checkboxOptions: Array<PoCheckboxGroupOption> = [
     { value: '1', label: 'Opção 1' },
-    { value: '2', label: 'Opção 2'},
-    { value: '3', label: 'Opção 3'}
+    { value: '2', label: 'Opção 2' },
+    { value: '3', label: 'Opção 3' }
   ];
 
   // Item do po-multiselect
@@ -72,7 +72,8 @@ export class NiversComponent implements OnInit {
     this.nivers.splice(idx, 1)
   }
 
-  // [*Form: Essa funcao vai ser responsavel por habilitar o botao submit quando nome for preenchido]
+  // [*Form: Essa funcao vai ser responsavel por 
+  //  habilitar o botao submit quando nome for preenchido]
   validForm(){
     return (this.f_person !== '')
   }
