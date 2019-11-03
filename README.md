@@ -28,4 +28,6 @@ ng serve --open
 
 ![](https://raw.githubusercontent.com/ricardomansano/NiverPortinariAngular/master/images/PrintPortinariAngular_2.png)
 
+![](https://raw.githubusercontent.com/ricardomansano/NiverPortinariAngular/master/images/PrintPortinariAngular_4.png)
+
 ![](https://raw.githubusercontent.com/ricardomansano/NiverPortinariAngular/master/images/PrintPortinariAngular_3.png)
